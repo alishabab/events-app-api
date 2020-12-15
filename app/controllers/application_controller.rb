@@ -9,11 +9,6 @@ class ApplicationController < ActionController::API
     render json: { error: 'Not Authenticated' }, status: 401 unless @current_user
   end
 
-  def authorize_request
-    user = User.find(params[:user_id])
-    render json: { error: 'Forbidden' }, status: 403 if @current_user != user
-  end
-
   def logged_in?
     return true if @current_user
 
