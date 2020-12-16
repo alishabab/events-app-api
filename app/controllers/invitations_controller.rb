@@ -14,7 +14,7 @@ class InvitationsController < ApplicationController
       @invitation.save
       render json: @invitation, status: :created
     else
-      render json: {message: 'Already invited'}
+      render json: {message: 'Already invited'}, status: :unprocessable_entity
     end
   end
 
