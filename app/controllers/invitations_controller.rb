@@ -32,6 +32,6 @@ class InvitationsController < ApplicationController
   private
 
   def invite_params
-    params.permit(:event_id, :attendee_id)
+    params.permit(:attendee_id)
   end
 end
