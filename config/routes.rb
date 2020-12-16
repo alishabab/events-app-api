@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: %i[index create]
   resources :events, only: %i[index create show update destroy] do
-    resources :invitations, only: %i[create]
+    resources :invitations, only: %i[create destroy]
     get 'attendees', to: 'invitations#attendees'
   end
   get 'users/attendees', to: 'users#attendees'
