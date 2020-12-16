@@ -19,7 +19,7 @@ class InvitationsController < ApplicationController
   end
 
   def destroy
-    @invitation = Invitation.find_by(attendee_id: params[:attendee_id]);
+    @invitation = Invitation.find_by(attended_event_id: params[:event_id],attendee_id: params[:attendee_id]);
     @invitation.destroy
     render json: { message: 'Invitation deleted' }, status: :ok
   end
@@ -32,6 +32,6 @@ class InvitationsController < ApplicationController
   private
 
   def invite_params
-    params.permit(:attendee_id)
+    params.permit(:event_id, :attendee_id)
   end
 end
