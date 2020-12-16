@@ -19,7 +19,7 @@ class InvitationsController < ApplicationController
   end
 
   def destroy
-    @invitation = Invitation.find(params[:id]);
+    @invitation = Invitation.find_by(attendee_id: params[:attendee_id]);
     @invitation.destroy
     render json: { message: 'Invitation deleted' }, status: :ok
   end
